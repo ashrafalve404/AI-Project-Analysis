@@ -13,7 +13,7 @@ function getProjectName(projectId: string) {
 import { Button, Card, Badge, Avatar, ProgressBar } from '@/components/ui';
 import { 
   Plus, FolderKanban, ListTodo, Calendar, AlertTriangle, 
-  BrainCircuit, Clock, TrendingUp, Users, MoreVertical,
+  BrainCircuit, Clock, TrendingUp,
   ChevronRight, Search, Bell, Settings, X
 } from 'lucide-react';
 
@@ -144,7 +144,7 @@ export default function DashboardPage() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
             <h1 className="text-2xl font-bold text-text-primary">Dashboard</h1>
-            <p className="text-text-secondary">Welcome back! Here's your project overview.</p>
+            <p className="text-text-secondary">Welcome back! Here&apos;s your project overview.</p>
           </div>
           <Link href="/analyzer">
             <Button className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 shadow-lg shadow-amber-500/20">
@@ -242,7 +242,7 @@ export default function DashboardPage() {
                 </Link>
               </div>
               <div className="space-y-2">
-                {pendingTasks.map((task, i) => (
+                {pendingTasks.map((task) => (
                   <div key={task.id} className="flex items-center justify-between p-3 bg-surface rounded-lg border border-border">
                     <div className="flex items-center gap-3">
                       <div className={`w-4 h-4 rounded border-2 ${

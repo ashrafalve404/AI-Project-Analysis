@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Card, CardHeader, CardTitle, Badge, Button } from '@/components/ui';
+import { Card, Badge, Button } from '@/components/ui';
 import { insights, projects } from '@/data/mockData';
 import { formatDate } from '@/lib/utils';
 import { Lightbulb, AlertTriangle, TrendingUp, Zap, ArrowRight, CheckCircle, ExternalLink } from 'lucide-react';
@@ -26,7 +26,7 @@ export default function InsightsPage() {
         <Card variant="gradient" className="mb-8 p-6">
           <div className="flex items-start gap-4">
             <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center"><Zap className="w-7 h-7 text-white" /></div>
-            <div className="flex-1"><h3 className="text-xl font-bold text-text-primary mb-2">AI Analysis Complete</h3><p className="text-text-secondary">Based on your project data, I've identified {insights.filter(i => i.actionable).length} actionable insights.</p><div className="flex gap-2 mt-4"><Badge variant="success"><CheckCircle className="w-3 h-3 mr-1" />{insights.filter(i => i.actionable).length} actionable</Badge></div></div>
+            <div className="flex-1"><h3 className="text-xl font-bold text-text-primary mb-2">AI Analysis Complete</h3><p className="text-text-secondary">Based on your project data, I&apos;ve identified {insights.filter(i => i.actionable).length} actionable insights.</p><div className="flex gap-2 mt-4"><Badge variant="success"><CheckCircle className="w-3 h-3 mr-1" />{insights.filter(i => i.actionable).length} actionable</Badge></div></div>
           </div>
         </Card>
         <h2 className="text-xl font-semibold text-text-primary mb-4">Actionable Insights</h2>

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { Card, Button } from '@/components/ui';
 import { Header, Footer } from '@/components/layout/MainLayout';
-import { Bot, Brain, CheckCircle, Shield, BarChart3, Zap, Calendar, ArrowRight, Target, Lightbulb, Users, Heart } from 'lucide-react';
+import { Brain, CheckCircle, Shield, BarChart3, Zap, Calendar, ArrowRight, Target, Lightbulb, Users, Heart } from 'lucide-react';
 
 const features = [
   { icon: Brain, title: 'AI Requirement Analysis', desc: 'Paste requirements and get instant task extraction' },

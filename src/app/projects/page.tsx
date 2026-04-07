@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Card, Badge, ProgressBar, Button, Input } from '@/components/ui';
 import { projects } from '@/data/mockData';
 import { formatDate, getStatusColor } from '@/lib/utils';
-import { Search, Plus, Grid3X3, List, FolderKanban, Clock, AlertTriangle, BrainCircuit, Bell, Settings } from 'lucide-react';
+import { Search, Plus, Grid3X3, List, Clock, BrainCircuit, Bell } from 'lucide-react';
 
 export default function ProjectsPage() {
   const [view, setView] = useState<'grid' | 'list'>('grid');

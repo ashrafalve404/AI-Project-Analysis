@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
-import { Button } from '@/components/ui';
 import { Header, Footer } from '@/components/layout/MainLayout';
 
 export default function PrivacyPage() {

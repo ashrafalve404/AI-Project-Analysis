@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Bot, Mail, Lock, ArrowRight, Eye, EyeOff, ChevronLeft } from 'lucide-react';
+import { Bot, Mail, Lock, ArrowRight, Eye, EyeOff } from 'lucide-react';
 import { Button, Input, Card } from '@/components/ui';
 import { Header, Footer } from '@/components/layout/MainLayout';
 import { useState } from 'react';
@@ -72,7 +72,7 @@ export default function LoginPage() {
             </form>
             
             <p className="mt-8 text-center text-text-secondary">
-              Don't have an account?{' '}
+              Don&apos;t have an account?{' '}
               <Link href="/signup" className="text-amber-400 font-medium">Sign up</Link>
             </p>
           </motion.div>

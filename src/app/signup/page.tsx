@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Bot, Mail, Lock, ArrowRight, Eye, EyeOff, ChevronLeft, User, Building2 } from 'lucide-react';
+import { Bot, Mail, Lock, ArrowRight, Eye, EyeOff, User, Building2 } from 'lucide-react';
 import { Button } from '@/components/ui';
 import { Header, Footer } from '@/components/layout/MainLayout';
 import { useState } from 'react';

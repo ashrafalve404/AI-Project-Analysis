@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Card, CardHeader, CardTitle, Badge, Button } from '@/components/ui';
+import { Card, Badge, Button } from '@/components/ui';
 import { notes, projects } from '@/data/mockData';
 import { formatDate } from '@/lib/utils';
-import { Search, Plus, FileText, Calendar, MessageSquare, Pin } from 'lucide-react';
+import { Plus, FileText, Calendar, MessageSquare, Pin } from 'lucide-react';
 
 export default function NotesPage() {
   const [search, setSearch] = useState('');

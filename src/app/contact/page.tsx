@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+
 import { Card, Button, Input, Textarea } from '@/components/ui';
 import { Header, Footer } from '@/components/layout/MainLayout';
 import { Mail, Phone, MapPin, Send, Headphones } from 'lucide-react';
@@ -13,7 +13,7 @@ export default function ContactPage() {
       <main className="px-6 py-12">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-text-primary mb-6">Get in <span className="text-gradient">Touch</span></h1>
-          <p className="text-xl text-text-secondary">Have questions? We'd love to hear from you.</p>
+          <p className="text-xl text-text-secondary">Have questions? We&apos;d love to hear from you.</p>
         </div>
         
         <div className="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-16">

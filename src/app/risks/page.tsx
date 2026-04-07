@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Card, CardHeader, CardTitle, Badge, Button, Input } from '@/components/ui';
+import { Card, Badge, Button, Input } from '@/components/ui';
 import { risks, projects } from '@/data/mockData';
 import { formatDate, getStatusColor } from '@/lib/utils';
 import { Search, Plus, AlertTriangle, AlertCircle, Shield, Clock, ExternalLink, X, Save } from 'lucide-react';

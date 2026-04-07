@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
 export const lightColors: Record<string, string> = {
   '--color-background': '#FAFAFA',
@@ -37,20 +37,27 @@ const accentColorMap: Record<string, string> = {
   '#ec4899': '#be185d',
 };
 
-export function useTheme() {
-  const [theme, setThemeState] = useState<'light' | 'dark'>('light');
-  const [accentColor, setAccentColorState] = useState('#f59e0b');
+function getInitialTheme(): 'light' | 'dark' {
+  if (typeof window === 'undefined') return 'light';
+  try {
+    return (localStorage.getItem('theme') as 'light' | 'dark') || 'light';
+  } catch {
+    return 'light';
+  }
+}
 
-  useEffect(() => {
-    try {
-      const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-      const savedAccent = localStorage.getItem('accentColor');
-      setThemeState(savedTheme || 'light');
-      setAccentColorState(savedAccent || '#f59e0b');
-    } catch {
-      // localStorage not available
-    }
-  }, []);
+function getInitialAccent(): string {
+  if (typeof window === 'undefined') return '#f59e0b';
+  try {
+    return localStorage.getItem('accentColor') || '#f59e0b';
+  } catch {
+    return '#f59e0b';
+  }
+}
+
+export function useTheme() {
+  const [theme, setThemeState] = useState<'light' | 'dark'>(getInitialTheme);
+  const [accentColor, setAccentColorState] = useState(getInitialAccent);
 
   const applyTheme = useCallback((newTheme: 'light' | 'dark', newAccent: string) => {
     try {
@@ -72,6 +79,10 @@ export function useTheme() {
     root.style.setProperty('--color-secondary', '#ea580c');
     root.style.setProperty('--color-secondary-hover', '#f97316');
     root.style.setProperty('--color-accent', newAccent);
+  }, []);
+
+  useEffect(() => {
+    applyTheme(theme, accentColor);
   }, []);
 
   const setTheme = useCallback((newTheme: 'light' | 'dark') => {

@@ -3,10 +3,10 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Card, Badge, Avatar, Button, Input } from '@/components/ui';
+import { Badge, Avatar, Button } from '@/components/ui';
 import { tasks, projects } from '@/data/mockData';
 import { formatDate, getStatusColor } from '@/lib/utils';
-import { Search, Plus, GripVertical, MoreHorizontal, Clock, X, Save } from 'lucide-react';
+import { Plus, MoreHorizontal, Clock, X, Save } from 'lucide-react';
 
 const columns = [
   { id: 'todo', label: 'To Do', color: 'slate' },
@@ -79,9 +79,7 @@ export default function TasksPage() {
                 <Badge variant="outline">{filtered.filter(t => t.status === col.id).length}</Badge>
               </div>
               <div className="space-y-3 min-h-[200px] p-3 bg-surface rounded-lg border border-border">
-                {filtered.filter(t => t.status === col.id).map(task => {
-                  const project = projects.find(p => p.id === task.projectId);
-                  return (
+                {filtered.filter(t => t.status === col.id).map(task => (
                     <div key={task.id} className="bg-surface p-4 rounded-lg border border-border hover:border-amber-500/30 transition-colors">
                       <div className="flex items-start justify-between mb-2">
                         <h4 className="font-medium text-text-primary">{task.title}</h4>
@@ -109,9 +107,8 @@ export default function TasksPage() {
                           {formatDate(task.dueDate)}
                         </span>
                       </div>
-                    </div>
-                  );
-                })}
+</div>
+                ))}
                 <button 
                   onClick={() => {
                     setNewTask(prev => ({ ...prev, status: col.id }));

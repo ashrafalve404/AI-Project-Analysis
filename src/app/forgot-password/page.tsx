@@ -24,7 +24,7 @@ export default function ForgotPasswordPage() {
             {!sent ? (
               <>
                 <h1 className="text-3xl font-bold text-text-primary mb-2">Forgot password?</h1>
-                <p className="text-text-secondary mb-8">No worries, we'll send you reset instructions.</p>
+                <p className="text-text-secondary mb-8">No worries, we&apos;ll send you reset instructions.</p>
                 <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); setSent(true); }}>
                   <Input label="Email" type="email" placeholder="Enter your email" icon={<Mail className="w-4 h-4" />} />
                   <Button type="submit" className="w-full bg-gradient-to-r from-amber-500 to-orange-500 shadow-lg">Reset Password <ArrowRight className="w-4 h-4" /></Button>

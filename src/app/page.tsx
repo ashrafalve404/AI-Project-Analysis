@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion';
-import { Bot, ArrowRight, Zap, Shield, Brain, Users, BarChart3, Clock, CheckCircle2, Star, Play } from 'lucide-react';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { ArrowRight, Zap, Shield, Brain, Users, BarChart3, Clock, CheckCircle2, Star, Play } from 'lucide-react';
 import { Button, Card, Badge } from '@/components/ui';
 import { Header, Footer } from '@/components/layout/MainLayout';
 import { useEffect, useState } from 'react';
@@ -359,7 +359,7 @@ export default function HomePage() {
                         <Star key={s} className="w-5 h-5 text-amber-500 fill-amber-500" />
                       ))}
                     </div>
-                    <p className="text-text-secondary text-lg mb-6">"{testimonial.text}"</p>
+                    <p className="text-text-secondary text-lg mb-6">&quot;{testimonial.text}&quot;</p>
                     <div className="flex items-center gap-4">
                       <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center text-white font-bold">
                         {testimonial.avatar}

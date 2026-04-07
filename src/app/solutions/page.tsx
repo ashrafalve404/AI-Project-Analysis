@@ -26,7 +26,7 @@ export default function SolutionsPage() {
         </div>
         
         <div className="space-y-12 max-w-5xl mx-auto">
-          {solutions.map((s, i) => (
+          {solutions.map((s) => (
             <div key={s.title} className="grid lg:grid-cols-2 gap-8 items-center">
               <div>
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center mb-6">

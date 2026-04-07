@@ -9,8 +9,14 @@ import { lightColors, darkColors, accentColorMap } from '@/lib/appInit';
 import { 
   User, Bell, Shield, Palette, Plug, Key, Save, Camera, 
   ChevronLeft, Moon, Sun, Monitor, Check,
-  MessageSquare, FolderKanban, Github
+  MessageSquare, FolderKanban, Plug2
 } from 'lucide-react';
+
+const GitHubIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.705-3.645-1.455-3.645-1.455-.54-1.38-1.335-1.755-1.335-1.755-1.095-.75.084-.735.084-.735 1.215.09 1.845 1.245 1.845 1.245 1.08 1.86 2.805 1.325 3.495 1.02.105-.795.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.92 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57C20.565 21.795 24 17.31 24 12c0-6.63-5.37-12-12-12z"/>
+  </svg>
+);
 
 const tabs = [
   { id: 'profile', label: 'Profile', icon: User },
@@ -53,25 +59,8 @@ export default function SettingsPage() {
     github: true,
   });
   const [saved, setSaved] = useState(false);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    try {
-      const savedTheme = localStorage.getItem('theme');
-      const savedAccent = localStorage.getItem('accentColor');
-      
-      setTheme((savedTheme as 'light' | 'dark') || 'light');
-      setAccentColor(savedAccent || '#f59e0b');
-    } catch {
-      setTheme('light');
-      setAccentColor('#f59e0b');
-    }
-    setLoading(false);
-  }, []);
-
-  useEffect(() => {
-    if (loading) return;
-    
     try {
       localStorage.setItem('theme', theme);
       localStorage.setItem('accentColor', accentColor);
@@ -91,7 +80,7 @@ export default function SettingsPage() {
     root.style.setProperty('--color-secondary', '#ea580c');
     root.style.setProperty('--color-secondary-hover', '#f97316');
     root.style.setProperty('--color-accent', accentColor);
-  }, [theme, accentColor, loading]);
+  }, [theme, accentColor]);
 
   const toggleNotification = (key: keyof typeof notifications) => {
     setNotifications(prev => ({ ...prev, [key]: !prev[key] }));
@@ -118,13 +107,7 @@ export default function SettingsPage() {
     saveSettings();
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="w-8 h-8 border-2 border-amber-500 border-t-transparent rounded-full animate-spin" />
-      </div>
-    );
-  }
+  
 
   return (
     <div className="min-h-screen bg-background">
@@ -391,7 +374,7 @@ export default function SettingsPage() {
                           <div className="w-12 h-12 rounded-lg border border-border flex items-center justify-center">
                             {item.key === 'slack' && <MessageSquare className="w-6 h-6 text-text-secondary" />}
                             {item.key === 'jira' && <FolderKanban className="w-6 h-6 text-text-secondary" />}
-                            {item.key === 'github' && <Github className="w-6 h-6 text-text-secondary" />}
+                            {item.key === 'github' && <GitHubIcon className="w-6 h-6 text-text-secondary" />}
                           </div>
                           <div>
                             <h4 className="font-medium text-text-primary">{item.name}</h4>
